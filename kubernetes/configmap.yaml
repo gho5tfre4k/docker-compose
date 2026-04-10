@@ -1,0 +1,28 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::980637429038:role/Team2-eks-cluster1-node-group-role
+      groups:
+      - system:bootstrappers
+      - system:nodes
+      username: system:node:{{EC2PrivateDNSName}}
+    mapUsers: |
+    - userarn: arn:aws:iam::980637429038:user/access-key-user
+      username: gaurav
+      groups:
+      - system:masters
+    - userarn: arn:aws:iam::980637429038:root
+      username: root-admin
+      groups:
+      - system:masters
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-04-09T09:32:37Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "720"
+  uid: 64d21f78-38d5-4a2b-b9ae-8d975ad35228

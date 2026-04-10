@@ -10,6 +10,6 @@ RUN mvn clean package -DskipTests
 # Stage 2: Run the application
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-COPY target/demo-0.0.1-SNAPSHOT.jar demoapp.jar
-EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "demoapp.jar"]
+COPY target/demo-0.0.1-SNAPSHOT.jar gbappnew2.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "gbappnew2.jar"]
